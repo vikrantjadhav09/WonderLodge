@@ -1,0 +1,34 @@
+<% layout("/layouts/boilerplate") %>
+
+    <div class="row mt-5">
+        <h1 class="col-md-8 offset-md-2">Signup on WonderLodge</h1>
+
+        <div class="col-md-8 offset-md-2">
+            <form action="/signup" method="post" class="needs-validation" novalidate>
+                <!-- User Name -->
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input name="username" id="username" class="form-control" placeholder="Enter your Username"
+                        required>
+                    <div class="valid-feedback">looks good!</div>
+                    <!-- <div class="invalid-feedback">Please new enter a user.</div> -->
+                </div>
+
+                <!-- Email -->
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input name="email" id="email" class="form-control" placeholder="Enter your Email" required>
+                </div>
+
+                <!-- Password -->
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input name="password" id="password" class="form-control" placeholder="Enter your Password"
+                        required>
+                </div>
+                <button class="btn btn-success">SignUp</button>
+
+            </form>
+        </div>
+
+    </div>

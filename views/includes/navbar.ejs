@@ -1,0 +1,132 @@
+<style>
+    /* Navbar background + sticky top */
+    .navbar {
+        background-color: #f8f9fa;
+        border-bottom: 1px solid #ddd;
+        padding: 0.5rem 1rem;
+    }
+
+    /* Navbar links */
+    .nav-link {
+        font-weight: 500;
+        color: #333;
+        transition: color 0.3s ease;
+    }
+
+    .nav-link:hover {
+        color: #007bff;
+    }
+
+    /* Search form */
+    .navbar .search-form {
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+    }
+
+    .navbar .form-control {
+        width: 200px;
+        padding: 0.35rem 0.5rem;
+        border-radius: 0.3rem;
+        border: 1px solid #ccc;
+        transition: width 0.3s ease;
+    }
+
+    .navbar .form-control:focus {
+        width: 250px;
+        outline: none;
+        border-color: #007bff;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+
+    /* Search button */
+    .navbar .btn-search {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.35rem 0.7rem;
+        border: 1px solid #007bff;
+        background-color: #007bff;
+        color: #fff;
+        border-radius: 0.3rem;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+    .navbar .btn-search:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+    }
+
+    /* Magnifying glass inside button */
+    .navbar .btn-search i {
+        font-size: 1rem;
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+        .navbar .form-control {
+            width: 100%;
+        }
+
+        .navbar .search-form {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 0.5rem;
+        }
+    }
+
+    /* Logo icon */
+    .navbar-brand i {
+        font-size: 1.5rem;
+        color: #007bff;
+    }
+
+    /* Spacing for nav items */
+    .navbar-nav.me-auto,
+    .navbar-nav.ms-auto {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+</style>
+
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+    <div class="container-fluid">
+        <!-- Logo / Home -->
+        <a class="navbar-brand" href="/listings"><i class="fa-solid fa-compass"></i></a>
+
+        <!-- Mobile toggle button -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <!-- Left nav: Explore + Search -->
+            <div class="navbar-nav me-auto align-items-center">
+                <a class="nav-link" href="/listings">Explore</a>
+
+                <!-- Search box with magnifying glass -->
+                <form class="search-form" action="/listings" method="GET">
+                    <input class="form-control" type="search" name="q" placeholder="Search Destinations..."
+                        aria-label="Search">
+                    <button class="btn-search" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+            </div>
+
+            <!-- Right nav: Add Home + Login/Signup/Logout -->
+            <div class="navbar-nav ms-auto align-items-center">
+                <a class="nav-link" href="/listings/new">Add your home</a>
+
+                <% if(!currUser){ %>
+                    <a class="nav-link" href="/signup"><b>Sign up</b></a>
+                    <a class="nav-link" href="/login"><b>Log in</b></a>
+                    <% } %>
+
+                        <% if(currUser){ %>
+                            <a class="nav-link" href="/logout">Log out</a>
+                            <% } %>
+            </div>
+        </div>
+    </div>
+</nav>
