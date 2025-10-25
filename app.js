@@ -77,6 +77,10 @@ const sessionOptions = {
 //   res.send("Hi, I am root");
 // });
 
+// Root URL redirect to /listings
+app.get('/', (req, res) => {
+  res.redirect('/listings');
+});
 
 
 
